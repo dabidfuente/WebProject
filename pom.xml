@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Web_Project</groupId>
+  <artifactId>webproject</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+	<dependencies>
+		  
+		  <!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-core -->
+		<dependency>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-core</artifactId>
+		    <version>2.5.18</version>
+		</dependency>
+		<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-core</artifactId>
+	    <version>2.12.0</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-api</artifactId>
+	    <version>2.12.0</version>
+	</dependency>
+	
+		
+	  </dependencies>
+  
+  
+  <build>
+  	<finalName>WebProject</finalName>
+  	<defaultGoal>install</defaultGoal>
+  	
+
+  	<plugins>
+        <plugin>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>9.4.7.v20170914</version>
+            <configuration>
+                <webApp>
+                    <contextPath>/${project.build.finalName}</contextPath>
+                </webApp>
+                <stopKey>CTRL+C</stopKey>
+                <stopPort>8999</stopPort>
+                <scanIntervalSeconds>10</scanIntervalSeconds>
+                <scanTargets>
+                    <scanTarget>src/main/webapp/WEB-INF/web.xml</scanTarget>
+                </scanTargets>
+            </configuration>
+        </plugin>
+    </plugins>
+  </build>
+</project>
