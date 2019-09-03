@@ -8,5 +8,12 @@
   </head>
   <body>
     <h2><s:property value="messageStore.message" /></h2>
+    <p><s:property value="messageStore" /></p>
+
+    
+    <p>I've said hello <s:property value="helloCount" /> times!</p>
+    
+    <p><a href="<s:url action='index' />" >Return to home page</a>.</p>
+    
   </body>
 </html>

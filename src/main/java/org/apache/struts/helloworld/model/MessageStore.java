@@ -10,4 +10,12 @@ public class MessageStore {
     public String getMessage() {
         return message;
     }
+    public String toString() {
+        return message + " (from toString)";
+    }
+
+	public void setMessage(String string) {
+		this.message = string;
+		
+	}	
 }
