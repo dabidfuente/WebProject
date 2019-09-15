@@ -11,7 +11,8 @@ public class select {
 	public select(){
 		
 	}
-	public select(Connection con){
+	
+	public void pruebaSelect(Connection con){
 		try{
 			Statement s = (Statement) con.createStatement();
 			rs = (ResultSet) s.executeQuery ("select * from miwebbbdd.capitulos");
@@ -30,4 +31,18 @@ public class select {
 			sql.printStackTrace();
 		}
 	}
+	
+
+	public static ResultSet SelectTablaCapitulos(Connection con) {
+			ResultSet rs = null;
+			try {
+				Statement s = (Statement) con.createStatement();
+				rs = (ResultSet) s.executeQuery ("select * from miwebbbdd.capitulos");
+				return rs;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+	
 }

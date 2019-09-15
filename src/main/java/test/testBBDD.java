@@ -12,9 +12,9 @@ public class testBBDD {
         conexion con = new conexion();
         System.out.println("Conexion creada");
         
-        select consulta = new select(con.getConexion());
-        
-       
+        select consulta = new select();
+        consulta.pruebaSelect(con.getConexion());
+        con.cierraConexion();
         
         
         System.out.println("------------");
