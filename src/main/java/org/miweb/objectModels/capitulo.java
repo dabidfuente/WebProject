@@ -34,6 +34,6 @@ public class capitulo {
 		this.listaRequisitos = listaRequisitos;
 	}
 	
-	
+
 
 }

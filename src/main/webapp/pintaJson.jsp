@@ -8,6 +8,7 @@
 	</head>
 	<body>
 	<h1>Mi Web PintaJSON</h1>
-	     <p><s:property value="json1.todoJSon" /></p>
+	     <p><s:property value="#capitulo.tituloCapitulo" /></p>
+	     <p><a href="<s:url action='indexMiweb'/>">Home Page</a></p>
 	</body>
 </html>

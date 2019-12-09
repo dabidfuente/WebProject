@@ -26,8 +26,8 @@ private Connection conexion=null;
 		dataSource.setServerName("localhost");
 		dataSource.setDatabaseName("miwebbbdd");
 		dataSource.setUser("root");
-		dataSource.setPassword("DabidRoot");
-
+		//dataSource.setPassword("DabidRoot");
+		dataSource.setPassword("Dabid1984");
 	}
 
 	public void creaConexion() {
