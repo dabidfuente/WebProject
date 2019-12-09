@@ -14,7 +14,7 @@ import java.io.*;
 public class conexion {
 
 	
-private Connection conexion=null;
+public Connection conexion=null;
 	
 	MysqlDataSource dataSource = null;
 	
@@ -27,7 +27,7 @@ private Connection conexion=null;
 		dataSource.setDatabaseName("miwebbbdd");
 		dataSource.setUser("root");
 		dataSource.setPassword("DabidRoot");
-
+		
 	}
 
 	public void creaConexion() {

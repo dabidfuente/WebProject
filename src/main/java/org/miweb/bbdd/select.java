@@ -17,7 +17,7 @@ public class select {
 			Statement s = (Statement) con.createStatement();
 			rs = (ResultSet) s.executeQuery ("select * from miwebbbdd.capitulos");
 			//rs = (ResultSet) s.executeQuery ("select * from clientes where nombre like '%david%'");
-			
+			rs.toString();
 			System.out.println("Listamos los datos de BBDD");
 			System.out.println("----------------------------------");
 			while (rs.next())

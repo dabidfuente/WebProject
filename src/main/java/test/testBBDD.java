@@ -12,6 +12,8 @@ public class testBBDD {
         conexion con = new conexion();
         System.out.println("Conexion creada");
         
+        con.creaConexion();
+        
         select consulta = new select();
         consulta.pruebaSelect(con.getConexion());
         con.cierraConexion();
