@@ -18,7 +18,7 @@ public class CreateJsonAction extends ActionSupport {
 	private norma normaPCI = null;
 	public capitulo capit= null;
 	Gson gson = null;
-	String JSON = "";
+	private String JSON = "";
 	List<capitulo> listaCapitulos =null;
 	
 	public CreateJsonAction() {
