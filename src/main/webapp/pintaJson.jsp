@@ -9,7 +9,7 @@
 	<script type="text/javascript">
 	</script>
 	<body>
-	<h1>Mi Web PintaJSON</h1>
+	<h1>Mi Web PintaJSON </h1>
 		
 		<s:textfield name="IdRequisitoRecuperado" size="2" label="Requisito recuperado"/>
 	    <s:textfield name="IdCapituloRecuperado" size="50" label="Capitulo recuperado"/>
