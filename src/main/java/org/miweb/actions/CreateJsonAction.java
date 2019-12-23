@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.miweb.bbdd.*;
 import org.miweb.objectModels.*;
+import org.json.*;
 
 import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,13 +14,14 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CreateJsonAction extends ActionSupport {
 
 	private int id_requisito=0;
-	private String nom_requisito="";
-	ResultSet rs = null;
+	//private String nom_requisito="";
+	private ResultSet rs = null;
 	private norma normaPCI = null;
-	public capitulo capit= null;
-	Gson gson = null;
+	private capitulo capit= null;
+	private Gson gson = null;
 	private String JSON = "";
-	List<capitulo> listaCapitulos =null;
+	private List<capitulo> listaCapitulos =null;
+
 	
 	public CreateJsonAction() {
  
@@ -30,14 +32,16 @@ public class CreateJsonAction extends ActionSupport {
 		
 		try {
 			listaCapitulos = new ArrayList<capitulo>(); 
-			
-			System.out.println("HOLA");
+
+		    norma normaPCI = new norma();
+		  
 		    conexion con = new conexion();
-		    con.creaConexion(); 
+		    con.creaConexion();
 		    select select1 = new select();
 		   
 		    //select1.pruebaSelect(con.getConexion());
 		    rs = select1.SelectTablaCapitulos(con.getConexion());
+
 		   
 		    
 			if (rs != null) {
@@ -57,8 +61,18 @@ public class CreateJsonAction extends ActionSupport {
 			
 			System.out.println(capit.getNumCapitulo());
 			System.out.println(capit.getTituloCapitulo());
+
+		    normaPCI.cargaNorma(rs);
+					    
+
 		    con.cierraConexion();
+
+		    //Json
+		    JSONObject jsonNorma = new JSONObject();
+		    jsonNorma.put("Versión Norma PCI", normaPCI.getNombreNorma());
+		    jsonNorma.put("Capitulos", normaPCI.getListaCapitulos());
 		    
+
 		    gson = new Gson();
 		    JSON = gson.toJson(capit);
 
@@ -73,20 +87,36 @@ public class CreateJsonAction extends ActionSupport {
 	}
     
     
+	public ResultSet getRs() {
+		return rs;
+	}
+
+	public void setRs(ResultSet rs) {
+		this.rs = rs;
+	}
+
+	public Gson getGson() {
+		return gson;
+	}
+
+	public void setGson(Gson gson) {
+		this.gson = gson;
+	}
+
+	public List<capitulo> getListaCapitulos() {
+		return listaCapitulos;
+	}
+
+	public void setListaCapitulos(List<capitulo> listaCapitulos) {
+		this.listaCapitulos = listaCapitulos;
+	}
+
 	public int getId_requisito() {
 		return id_requisito;
 	}
 
 	public void setId_requisito(int id_requisito) {
 		this.id_requisito = id_requisito;
-	}
-
-	public String getNom_requisito() {
-		return nom_requisito;
-	}
-
-	public void setNom_requisito(String nom_requisito) {
-		this.nom_requisito = nom_requisito;
 	}
 
 	public norma getNormaPCI() {
@@ -112,7 +142,5 @@ public class CreateJsonAction extends ActionSupport {
 	public void setJSON(String jSON) {
 		JSON = jSON;
 	}
-    
-    
-    
+
 }
