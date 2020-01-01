@@ -9,6 +9,7 @@ import org.miweb.objectModels.*;
 import org.json.*;
 
 import com.google.gson.Gson;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateJsonAction extends ActionSupport {
@@ -31,6 +32,13 @@ public class CreateJsonAction extends ActionSupport {
 		
 		
 		try {
+			
+			ActionContext.getContext().getSession().put("id_requisito", getId_requisito());
+			
+			
+			//System.out.println (this.id_requisito);
+			//Aqui tengo el id requisito recuperado
+			
 			listaCapitulos = new ArrayList<capitulo>(); 
 
 		    norma normaPCI = new norma();
@@ -40,8 +48,8 @@ public class CreateJsonAction extends ActionSupport {
 		    select select1 = new select();
 		   
 		    //select1.pruebaSelect(con.getConexion());
-		    rs = select1.SelectTablaCapitulos(con.getConexion());
-
+		    // ----- rs = select1.SelectTablaCapitulos(con.getConexion());
+		    rs = select1.SelectTablaCapitulos_IdCapitulo(con.getConexion(),this.id_requisito);
 		   
 		    
 			if (rs != null) {
@@ -59,8 +67,8 @@ public class CreateJsonAction extends ActionSupport {
 			listaCapitulos.add(capit);
 			normaPCI.setListaCapitulos(listaCapitulos);
 			
-			System.out.println(capit.getNumCapitulo());
-			System.out.println(capit.getTituloCapitulo());
+			//System.out.println(capit.getNumCapitulo());
+			//System.out.println(capit.getTituloCapitulo());
 
 		    normaPCI.cargaNorma(rs);
 					    
@@ -76,7 +84,7 @@ public class CreateJsonAction extends ActionSupport {
 		    gson = new Gson();
 		    JSON = gson.toJson(capit);
 
-		    System.out.println(JSON);
+		    //System.out.println(JSON);
 		    
 		} catch (Exception e) {
 			e.printStackTrace();

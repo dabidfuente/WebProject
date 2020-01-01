@@ -10,8 +10,11 @@
 	<body>
 	<h1>Mi Web</h1>
 		<s:form action="JsonTest" method="post">
-		  	<s:textfield name="JsonTest" size="2" label="Requisito a recuperar" />
-		  	<s:submit value="Submit" />
+			<label>Requisito a recuperar </label>
+		  	<input id="id_requisito" name="id_requisito" type="text" size="2" />
+		  	<!--<s:textfield name="JsonTest" size="2" label="Requisito a recuperar" />
+		  	-->
+		  	<button type="submit"> Ok </button>
 		</s:form>
 	</body>
 </html>

@@ -44,5 +44,16 @@ public class select {
 				return null;
 			}
 		}
+	public static ResultSet SelectTablaCapitulos_IdCapitulo(Connection con, int idCap) {
+		ResultSet rs = null;
+		try {
+			Statement s = (Statement) con.createStatement();
+			rs = (ResultSet) s.executeQuery ("select * from miwebbbdd.capitulos where numRequisito=" +idCap);
+			return rs;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 }
